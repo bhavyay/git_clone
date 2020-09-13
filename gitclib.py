@@ -29,4 +29,4 @@ def main(argv=sys.argv[1:]):
   args = argparser.parse_args(argv)
 
   if args.command == "init" : gitfunction.cmd_init(args)
-  if args.command == "hash-object" : gitfunction.cmd_hash_object(args)
+  elif args.command == "hash-object" : gitfunction.cmd_hash_object(args)

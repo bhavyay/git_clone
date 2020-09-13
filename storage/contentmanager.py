@@ -15,3 +15,8 @@ def content_hash(obj, actually_write=True):
   data = obj.serialize()
   result = obj.fmt + b' ' + str(len(data)).encode() + b'\x00' + data
   return hashlib.sha1(result).hexdigest()
+
+def content_read(file_path, type):
+  with open(file_path, "rb") as fd:
+    sha = object_hash(fd, type.encode())
+  return sha

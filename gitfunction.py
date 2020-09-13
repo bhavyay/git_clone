@@ -6,6 +6,5 @@ def cmd_init(args):
   print("Intialized git repository in the path %s" % args.path)
 
 def cmd_hash_object(args):
-  with open(args.path, "rb") as fd:
-    sha = storage.contentmanager.object_hash(fd, args.type.encode())
-    print(sha)
+  sha = storage.contentmanager.content_read(args.path, args.type)
+  print(sha)
