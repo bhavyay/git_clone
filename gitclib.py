@@ -25,8 +25,13 @@ argsp.add_argument("-t",
 argsp.add_argument("path",
                    help="Read object from <file>")
 
+argsp = argsubparsers.add_parser("add", help="Add file to track content changes")
+argsp.add_argument("path",
+                   help="Add <file> to storage")
+
 def main(argv=sys.argv[1:]):
   args = argparser.parse_args(argv)
 
   if args.command == "init" : gitfunction.cmd_init(args)
   elif args.command == "hash-object" : gitfunction.cmd_hash_object(args)
+  elif args.command == "add" : gitfunction.cmd_add(args)
